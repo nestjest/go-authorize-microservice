@@ -1,0 +1,13 @@
+#./Taskfile.yaml
+# See: https://taskfile.dev/api/
+
+version: "3"
+
+tasks:
+  default:
+    task: run
+  run:
+    aliases: [r]
+    desc: "Start the application"
+    cmds:
+      - go run ./cmd/sso/main.go --config=./config/local.yaml
