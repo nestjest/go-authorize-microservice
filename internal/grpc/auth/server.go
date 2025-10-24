@@ -5,6 +5,8 @@ import (
 	"errors"
 
 	ssov1 "github.com/nestjest/auth_microservice_contract/gen/go/sso"
+	"github.com/nestjest/go-authorize-microservice/internal/services/auth"
+	"github.com/nestjest/go-authorize-microservice/internal/storage"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -25,7 +27,8 @@ type Auth interface {
 	RegisterNewUser(
 		ctx context.Context,
 		email string,
-	)
+		password string,
+	) (userId int64, err error)
 }
 
 func Register(gRPCServer *grpc.Server, auth Auth) {
@@ -59,6 +62,22 @@ func (s *serverAPI) Login(ctx context.Context, in *ssov1.LoginRequest) (*ssov1.L
 }
 
 func (s *serverAPI) Register(ctx context.Context, in *ssov1.RegisterRequest) (*ssov1.RegisterResponse, error) {
-	// TODO: Реализовать ручку для запуска регистрации нового пользорвателя в сервисном слое.
-	return nil, nil
+	if in.Email == "" {
+		return nil, status.Error(codes.InvalidArgument, "email is required")
+	}
+
+	if in.Password == "" {
+		return nil, status.Error(codes.InvalidArgument, "password is required")
+	}
+
+	uid, err := s.auth.RegisterNewUser(ctx, in.GetEmail(), in.GetPassword())
+	if err != nil {
+		if errors.Is(err, storage.ErrUserExists) {
+			return nil, status.Error(codes.AlreadyExists, "user already exists")
+		}
+
+		return nil, status.Error(codes.Internal, "failed to register user")
+	}
+
+	return &ssov1.RegisterResponse{UserId: uid}, nil
 }
