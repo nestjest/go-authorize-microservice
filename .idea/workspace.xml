@@ -4,27 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4456fcea-debf-4d09-9b55-8872618a73d2" name="Changes" comment="More logic sqlite added and add service layer">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3cc9d25c-fd1e-4320-a8c1-84ee6c573d40.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/3cc9d25c-fd1e-4320-a8c1-84ee6c573d40/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmd/migrator/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/domain/models/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/domain/models/user.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/lib/jwt/jwt.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/services/auth/auth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/storage/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/1_init.down.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/1_init.up.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/sso.db" afterDir="false" />
+    <list default="true" id="9778ee70-1c10-46de-bb5d-9e53bb02c87f" name="Changes" comment="Зип бомба для Тохи )">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/sso/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/sso/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/grpc/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/grpc/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/lib/logger/handlers/slogpretty/slogpretty.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/lib/logger/handlers/slogpretty/slogpretty.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/storage/sqlite/sqlite.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/storage/sqlite/sqlite.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/sso.db" beforeDir="false" afterPath="$PROJECT_DIR$/storage/sso.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,28 +29,26 @@
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../../../../Program Files/Go" />
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "nestjest"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nestjest&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/nestjest/go-authorize-microservice",
-    "accountId": "215a33a6-c8bb-48e3-8694-e82bb946568b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nestjest/go-authorize-microservice&quot;,
+    &quot;accountId&quot;: &quot;215a33a6-c8bb-48e3-8694-e82bb946568b&quot;
   }
-}]]></component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
-  <component name="ProjectId" id="34VNAgHf5vEUbUAv8Vu915HnhSL" />
+  <component name="ProjectId" id="34VkZjuo1HTGziOprVuqRsieLrH" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -71,7 +58,6 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "DefaultGoTemplateProperty": "Go File",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.GoLinterPluginOnboarding": "true",
@@ -84,12 +70,16 @@
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/demoex1/Desktop/kockers/auth_microservice/go-authorize-microservice",
+    "last_opened_file_path": "C:/Users/demoex1",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "terminal"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -102,31 +92,20 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4456fcea-debf-4d09-9b55-8872618a73d2" name="Changes" comment="" />
-      <created>1761294637489</created>
+      <changelist id="9778ee70-1c10-46de-bb5d-9e53bb02c87f" name="Changes" comment="" />
+      <created>1761306188826</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1761294637489</updated>
+      <updated>1761306188826</updated>
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="More logic sqlite added and add service layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="More logic sqlite added and add service layer" />
+    <MESSAGE value="Зип бомба для Тохи )" />
+    <option name="LAST_COMMIT_MESSAGE" value="Зип бомба для Тохи )" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

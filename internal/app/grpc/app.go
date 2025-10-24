@@ -23,9 +23,10 @@ type App struct {
 func New(log *slog.Logger, authService authgrpc.Auth, port int) *App {
 	loggingOpts := []logging.Option{
 		logging.WithLogOnEvents(
-			logging.PayloadReceived, logging.PayloadSent,
+			logging.StartCall, logging.FinishCall,
 		),
 	}
+
 	recoveryOpts := []recovery.Option{
 		recovery.WithRecoveryHandler(func(p interface{}) (err error) {
 			log.Error("Recovered from panic", slog.Any("panic", p))

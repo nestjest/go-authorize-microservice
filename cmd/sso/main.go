@@ -3,6 +3,8 @@ package main
 import (
 	"log/slog"
 	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/nestjest/go-authorize-microservice/internal/app"
 	"github.com/nestjest/go-authorize-microservice/internal/config"
@@ -25,9 +27,23 @@ func main() {
 		slog.Any("cfg", cfg),
 	)
 
+	log.Warn("warn message")
+	log.Error("error message")
+	log.Debug("debug message")
+
 	application := app.New(log, cfg.GRPC.Port, cfg.StoragePath, cfg.TokenTTL)
 
-	application.GRPCServer.MustRun()
+	go func() {
+		application.GRPCServer.MustRun()
+	}()
+
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, syscall.SIGTERM, syscall.SIGINT)
+
+	<-stop
+
+	application.GRPCServer.Stop()
+	log.Info("application stopped")
 
 }
 

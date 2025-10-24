@@ -34,7 +34,7 @@ func (s *Storage) SaveUser(ctx context.Context, email string, passHash []byte) (
 		return 0, fmt.Errorf("%s: %w", op, err)
 	}
 
-	res, err := stmt.Exec(ctx, email, passHash)
+	res, err := stmt.ExecContext(ctx, email, passHash)
 
 	if err != nil {
 		var sqliteErr sqlite3.Error
