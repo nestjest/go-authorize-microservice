@@ -4,6 +4,7 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/nestjest/go-authorize-microservice/internal/app"
 	"github.com/nestjest/go-authorize-microservice/internal/config"
 	"github.com/nestjest/go-authorize-microservice/internal/lib/logger/handlers/slogpretty"
 )
@@ -24,9 +25,10 @@ func main() {
 		slog.Any("cfg", cfg),
 	)
 
-	// TODO: инициализировать приложение
+	application := app.New(log, cfg.GRPC.Port, cfg.StoragePath, cfg.TokenTTL)
 
-	// TODO: запустить gRPC сервер приложения
+	application.GRPCServer.MustRun()
+
 }
 
 // setupLogger create logger from slog. And configurate from Env.
